@@ -8,8 +8,7 @@ module arm_soc(
   
   input [15:0] Switches, 
   input [1:0] Buttons, 
-
-  output [15:0] DataOut,
+  output logic [8:0] x1, x2, y1, y2,	
   output DataValid,
   output LOCKUP
 
@@ -17,6 +16,7 @@ module arm_soc(
  
 timeunit 1ns;
 timeprecision 100ps;
+
 
   // Global & Master AHB Signals
   wire [31:0] HADDR, HWDATA, HRDATA;
@@ -94,8 +94,13 @@ timeprecision 100ps;
     .HSEL(HSEL_DOUT),
     .HRDATA(HRDATA_DOUT), .HREADYOUT(HREADYOUT_DOUT),
 
-    .DataOut(DataOut), .DataValid(DataValid)
+    .x1(x1), .x2(x2), .y1(y1), .y2(y2), .DataValid(DataValid)
 
   );
+  
 
+// razzle 
+ razzle raz_1( 
+	.x1(x1), .x2(x2), .y1(y1), .y2(y2)
+	) ;
 endmodule
