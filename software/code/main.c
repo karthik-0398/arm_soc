@@ -8,7 +8,7 @@
 #define AHB_SW_BASE                             0x40000000
 #define AHB_OUT_BASE                            0x50000000
 
-// Define pointers with correct type for access to 16-bit i/o devices
+// Define pointers with correct type for access to 32-bit i/o devices
 //
 // The locations in the devices can then be accessed as:
 //    SW_REGS[0]
@@ -16,7 +16,6 @@
 //    SW_REGS[2]
 //    OUT_REGS[0]
 //    OUT_REGS[1]
-//
 //
 volatile uint16_t* SW_REGS = (volatile uint16_t*) AHB_SW_BASE;
 volatile uint16_t* OUT_REGS = (volatile uint16_t*) AHB_OUT_BASE;
@@ -27,27 +26,44 @@ volatile uint16_t* OUT_REGS = (volatile uint16_t*) AHB_OUT_BASE;
 // Functions provided to access i/o devices
 //////////////////////////////////////////////////////////////////
 
-void write_out(uint16_t value) {
+void write_out_0(uint16_t value_0) {
 
-  OUT_REGS[1] = 1;
-  OUT_REGS[0] = value;
+  OUT_REGS[0] = value_0;
 
 }
+void write_out_1(uint16_t value_1) {
 
+  OUT_REGS[1] = value_1;
+
+}
+void write_out_2(uint16_t value_2) {
+
+  OUT_REGS[2] = value_2;
+
+}
+void write_out_3(uint16_t value_3) {
+
+  OUT_REGS[3] = value_3;
+
+}
 void set_out_invalid(void) {
-
+	
+  OUT_REGS[3] = 0;
+  OUT_REGS[2] = 0;
   OUT_REGS[1] = 0;
   OUT_REGS[0] = 0;
 
 }
 
-uint16_t read_out(void) {
+uint32_t read_out(void) {
 
   return OUT_REGS[0];
-
+  return OUT_REGS[1];
+  return OUT_REGS[2];
+  return OUT_REGS[3];  
 }
 
-uint16_t read_switches(int addr) {
+uint32_t read_switches(int addr) {
 
   return SW_REGS[addr];
 
@@ -79,16 +95,6 @@ void wait_for_any_switch_data(void) {
 
 }
 
-//////////////////////////////////////////////////////////////////
-// Other Functions
-//////////////////////////////////////////////////////////////////
-
-int factorial(int value) {
-
-  if ( value == 0 ) return 1;
-  else return ( value * factorial(value - 1) );
-
-}
 
 //////////////////////////////////////////////////////////////////
 // Main Function
@@ -98,30 +104,12 @@ int main(void) {
 
   int switch_temp;
 
-  write_out( 0x5555 );
-  write_out( read_out() << 1 );
-  write_out( read_out() >> 1 );
-
-  // repeat forever (embedded programs generally do not terminate)
-  while(1){
-
-    wait_for_any_switch_data();
+  write_out_0( 0x00000000 ); 
+  write_out_1( 0x00000000 );
+  write_out_2( 0x11110000 );
+  write_out_3( 0x11110000 );  
+	
     
-    if ( check_switches(0) ) {
-      write_out( read_switches(0) );
-    }
 
-    if ( check_switches(1) ) {
-      switch_temp = read_switches(1);
-      if ( switch_temp < 8 ) {
-        // if the switch value < 8 return the factorial
-        write_out( factorial(switch_temp) );
-      } else {
-        // otherwise flag an error
-        set_out_invalid();
-      }
-    }
-  }
 
 }
-
