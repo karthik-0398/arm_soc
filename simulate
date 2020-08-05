@@ -1,0 +1,12 @@
+#! /bin/sh
+
+if [ "$1" != "-no_graphics" ]
+then
+  options=" +gui +ncaccess+r +tcl+testbench/arm_soc.tcl"
+fi
+
+HEXPROG=software/code.hex
+PROGRAM=" +define+prog_file=${HEXPROG}"
+
+ncverilog -sv testbench/arm_soc_stim.sv -y behavioural +libext+.sv $options $PROGRAM
+
