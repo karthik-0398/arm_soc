@@ -11,8 +11,8 @@
 //
 // Address map :
 //   Base addess + 0 : 
-//     Read DataOut register
-//     Write DataOut register, Copy NextDataValid to DataValid
+//     Read x1 register
+//     Write x1 register, Copy NextDataValid to DataValid
 //   Base addess + 2 : 
 //     Read NextDataValid and DataValid registers
 //     Write NextDataValid register
@@ -23,7 +23,7 @@
 
 
 // In order to update the output, the software should update the NextDataValid
-// register followed by the DataOut register.
+// register followed by the x1 register.
 
 
 module ahb_out(
@@ -46,7 +46,7 @@ module ahb_out(
   output HREADYOUT,
 
   //Non-AHB Signals
-  output logic [15:0] DataOut,
+  output logic [8:0] x1, x2, y1, y2,
   output logic DataValid
 
 );
@@ -59,7 +59,10 @@ timeprecision 100ps;
 
   //control signals are stored in registers
   logic write_enable, read_enable;
-  logic half_word_address;
+  logic half_word_address_1;
+  logic half_word_address_2;
+  logic half_word_address_3;
+  logic half_word_address_4;
  
   logic NextDataValid;
   logic [15:0] Status;
@@ -70,19 +73,28 @@ timeprecision 100ps;
       begin
         write_enable <= '0;
         read_enable <= '0;
-        half_word_address <= '0;
+        half_word_address_1 <= '0;
+	    	half_word_address_2 <= '0;
+	    	half_word_address_3 <= '0;
+    		half_word_address_4 <= '0;
       end
     else if ( HREADY && HSEL && (HTRANS != No_Transfer) )
       begin
         write_enable <= HWRITE;
         read_enable <= ! HWRITE;
-        half_word_address <= HADDR[1];
+        half_word_address_1 <= HADDR[1];
+	    	half_word_address_2 <= HADDR[2];
+    		half_word_address_3 <= HADDR[3];
+		    half_word_address_4 <= HADDR[4];
      end
     else
       begin
         write_enable <= '0;
         read_enable <= '0;
-        half_word_address <= '0;
+        half_word_address_1 <= '0;
+    		half_word_address_2 <= '0;
+    		half_word_address_3 <= '0;
+    		half_word_address_4 <= '0;
      end
 
   //Act on control signals in the data phase
@@ -91,23 +103,67 @@ timeprecision 100ps;
   always_ff @(posedge HCLK, negedge HRESETn)
     if ( ! HRESETn )
       begin
-        DataOut <= '0;
+        x1 <= '0;
+    		x2 <= '0;
+    		y1 <= '0;
+    		y2 <= '0;
         DataValid <= '0;
         NextDataValid <= '0;
       end
-    else if ( write_enable && (half_word_address==0))
+ // x1 write     
+    else if ( write_enable && (half_word_address_1==0))
       begin
-        DataOut <= HWDATA[15:0];
+        x1 <= HWDATA[15:0];
         DataValid <= NextDataValid;
 
         // this is not synthesized but provides useful debugging information
         if ( NextDataValid )
-          $display( "DataOut:      ", HWDATA[15:0], " @", $time );
+          $display( "x1:      ", HWDATA[15:0], " @", $time );
         else
-          $display( "DataOut:--Invalid-- @", $time );
+          $display( "x1:--Invalid-- @", $time );
 
      end
-    else if ( write_enable && (half_word_address==1))
+ // x2 write    
+	else if ( write_enable && (half_word_address_2==0))
+      begin
+		x2 <= HWDATA[15:0];
+		DataValid <= NextDataValid;
+		
+	    // this is not synthesized but provides useful debugging information
+        if ( NextDataValid )
+          $display( "x2:      ", HWDATA[15:0], " @", $time );
+        else
+          $display( "x2:--Invalid-- @", $time );
+
+     end
+// y1 write
+	else if ( write_enable && (half_word_address_3==0))
+      begin
+		y1 <= HWDATA[15:0];
+		DataValid <= NextDataValid;
+		
+	    // this is not synthesized but provides useful debugging information
+        if ( NextDataValid )
+          $display( "y1:      ", HWDATA[15:0], " @", $time );
+        else
+          $display( "y1:--Invalid-- @", $time );
+
+     end
+ //y2 write    
+	else if ( write_enable && (half_word_address_4==0))
+      begin
+		y2 <= HWDATA[15:0];
+		DataValid <= NextDataValid;
+		
+	    // this is not synthesized but provides useful debugging information
+        if ( NextDataValid )
+          $display( "y2:      ", HWDATA[15:0], " @", $time );
+        else
+          $display( "y2:--Invalid-- @", $time );
+
+     end	 
+     
+    else if ( write_enable && (half_word_address_1==1) && (half_word_address_2==1) && (half_word_address_3==1) && (half_word_address_4==1) )
       begin
         NextDataValid <= HWDATA[16];
      end
@@ -121,15 +177,14 @@ timeprecision 100ps;
       // (output of zero when not enabled for read is not necessary
       //  but may help with debugging)
       HRDATA = '0;
-    else
-      case (half_word_address)
+    else 
+      case (half_word_address_1)
         // ensure that half-word data is correctly aligned
-        0 : HRDATA = { 16'd0, DataOut };
+        0 : HRDATA = { 16'd0, x1 };
         1 : HRDATA = { Status, 16'd0 };
         // unused address - returns zero
         default : HRDATA = '0;
       endcase
-
   //Transfer Response
   assign HREADYOUT = '1; //Single cycle Write & Read. Zero Wait state operations
 
