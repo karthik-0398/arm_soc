@@ -17,8 +17,8 @@
 //    OUT_REGS[0]
 //    OUT_REGS[1]
 //
-volatile uint16_t* SW_REGS = (volatile uint16_t*) AHB_SW_BASE;
-volatile uint16_t* OUT_REGS = (volatile uint16_t*) AHB_OUT_BASE;
+volatile uint32_t* SW_REGS = (volatile uint32_t*) AHB_SW_BASE;
+volatile uint32_t* OUT_REGS = (volatile uint32_t*) AHB_OUT_BASE;
 
 #include <stdint.h>
 
@@ -26,22 +26,22 @@ volatile uint16_t* OUT_REGS = (volatile uint16_t*) AHB_OUT_BASE;
 // Functions provided to access i/o devices
 //////////////////////////////////////////////////////////////////
 
-void write_out_0(uint16_t value_0) {
+void write_out_0(uint32_t value_0) {
 
   OUT_REGS[0] = value_0;
 
 }
-void write_out_1(uint16_t value_1) {
+void write_out_1(uint32_t value_1) {
 
   OUT_REGS[1] = value_1;
 
 }
-void write_out_2(uint16_t value_2) {
+void write_out_2(uint32_t value_2) {
 
   OUT_REGS[2] = value_2;
 
 }
-void write_out_3(uint16_t value_3) {
+void write_out_3(uint32_t value_3) {
 
   OUT_REGS[3] = value_3;
 
