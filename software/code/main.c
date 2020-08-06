@@ -102,8 +102,6 @@ void wait_for_any_switch_data(void) {
 
 int main(void) {
 
-  int switch_temp;
-
   write_out_0( 0x00000000 ); 
   write_out_1( 0x00000000 );
   write_out_2( 0x11110000 );

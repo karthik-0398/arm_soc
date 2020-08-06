@@ -1,0 +1,8 @@
+//
+// File created by:  irun
+// Do not modify this file
+
+s1::(06Aug2020:03:09:54):( ncverilog -sv testbench/arm_soc_stim.sv -y behavioural +libext+.sv +gui +ncaccess+r +tcl+testbench/arm_soc.tcl +define+prog_file=software/code.hex )
+s2::(06Aug2020:03:11:12):( ncverilog -sv testbench/arm_soc_stim.sv -y behavioural +libext+.sv +gui +ncaccess+r +tcl+testbench/arm_soc.tcl +define+prog_file=software/code.hex )
+s3::(06Aug2020:03:18:18):( ncverilog -sv testbench/arm_soc_stim.sv -y behavioural +libext+.sv +gui +ncaccess+r +tcl+testbench/arm_soc.tcl +define+prog_file=software/code.hex )
+s4::(06Aug2020:03:19:07):( ncverilog -sv testbench/arm_soc_stim.sv -y behavioural +libext+.sv +gui +ncaccess+r +tcl+testbench/arm_soc.tcl +define+prog_file=software/code.hex )

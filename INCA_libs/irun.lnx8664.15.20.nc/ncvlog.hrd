@@ -1,0 +1,11 @@
+//
+// File created by:  ncverilog
+// Do not modify this file
+//
+-YDIR
+behavioural
+-sv
+-LIBEXT
+.sv
+-DEFINE
+prog_file=software/code.hex

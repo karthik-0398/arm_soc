@@ -1,0 +1,103 @@
+ncverilog(64): 15.20-s058: (c) Copyright 1995-2018 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s058: Started on Aug 06, 2020 at 03:19:07 BST
+ncverilog
+	-sv
+	testbench/arm_soc_stim.sv
+	-y
+	behavioural
+	+libext+.sv
+	+gui
+	+ncaccess+r
+	+tcl+testbench/arm_soc.tcl
+	+define+prog_file=software/code.hex
+Recompiling... reason: file './testbench/arm_soc_stim.sv' is newer than expected.
+	expected: Sun Feb 16 16:49:36 2020
+	actual:   Thu Aug  6 03:18:58 2020
+file: testbench/arm_soc_stim.sv
+	module worklib.arm_soc_stim:sv
+		errors: 0, warnings: 0
+file: behavioural/arm_soc.sv
+	module behavioural.arm_soc:sv
+		errors: 0, warnings: 0
+		Caching library 'behavioural' ....... Done
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		behavioural.CORTEXM0DS:sv <0x11995c2d>
+			streams:   6, words:  1013
+		behavioural.ahb_interconnect:sv <0x10ed16eb>
+			streams:   4, words:  3059
+		behavioural.ahb_out:sv <0x09e4aee2>
+			streams:  17, words: 14203
+		behavioural.ahb_ram:sv <0x6de7ab0e>
+			streams:  15, words:  8478
+		behavioural.ahb_switches:sv <0x5aac1ebe>
+			streams:  16, words:  6047
+		behavioural.arm_soc:sv <0x059532c7>
+			streams:   6, words:  2347
+		behavioural.cortexm0ds_logic:sv <0x71afefff>
+			streams: 2204, words: 795278
+		worklib.arm_soc_stim:sv <0x4a8925f9>
+			streams:   7, words: 12814
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                   Instances  Unique
+		Modules:                   8       8
+		Registers:               895     895
+		Scalar wires:          11128       -
+		Expanded wires:          119       5
+		Vectored wires:           38       -
+		Always blocks:           855     855
+		Initial blocks:            2       2
+		Cont. assignments:       955   11109
+		Pseudo assignments:        9       9
+		Simulation timescale:  100ps
+	Writing initial simulation snapshot: worklib.arm_soc_stim:sv
+ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+
+-------------------------------------
+Relinquished control to SimVision...
+ncsim> 
+ncsim> source /eda/cadence/incisiv/tools/inca/files/ncsimrc
+ncsim> # SimVision command script arm_soc.tcl
+ncsim> 
+ncsim> simvision {
+> 
+>   # Open new waveform window
+> 
+>     window new WaveWindow  -name  "Waves for ARM SoC Example"
+>     waveform  using  "Waves for ARM SoC Example"
+> 
+>   # Add Waves
+> 
+>     waveform  add  -signals  arm_soc_stim.HCLK
+>     waveform  add  -signals  arm_soc_stim.HRESETn
+>     waveform  add  -signals  arm_soc_stim.Switches
+>     waveform  add  -signals  arm_soc_stim.Buttons
+>     waveform  add  -signals  arm_soc_stim.DataOut
+>     waveform  add  -signals  arm_soc_stim.DataValid
+>     waveform  add  -signals  arm_soc_stim.LOCKUP
+>     waveform  add  -signals  arm_soc_stim.dut.HADDR
+>     waveform  add  -signals  arm_soc_stim.dut.HWRITE
+>     waveform  add  -signals  arm_soc_stim.dut.HSEL_RAM
+>     waveform  add  -signals  arm_soc_stim.dut.HSEL_SW
+>     waveform  add  -signals  arm_soc_stim.dut.HSEL_DOUT
+> 
+> }
+ncsim> 
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm arm_soc_stim.HCLK arm_soc_stim.HRESETn arm_soc_stim.Switches arm_soc_stim.Buttons arm_soc_stim.DataValid arm_soc_stim.LOCKUP arm_soc_stim.dut.HADDR arm_soc_stim.dut.HWRITE arm_soc_stim.dut.HSEL_RAM arm_soc_stim.dut.HSEL_SW arm_soc_stim.dut.HSEL_DOUT
+Created probe 1
+ncsim> run
+x1:--Invalid-- @                1045
+x1:--Invalid-- @                1505
+x1:--Invalid-- @                2005
+x1:--Invalid-- @                2505
+Simulation stopped via $stop(1) at time 404010 NS + 0
+ncsim> ^C
+ncsim> exit
+TOOL:	ncverilog	15.20-s058: Exiting on Aug 06, 2020 at 03:19:53 BST  (total: 00:00:46)
