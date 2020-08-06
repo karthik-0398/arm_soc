@@ -10,13 +10,16 @@ module de1_soc_wrapper(
   input CLOCK_50,
   
   input [9:0] SW, 
-  input [2:0] KEY, // de1 keys are active low
+  input [3:0] KEY, // de1 keys are active low
 
   output [9:0] LEDR,
   output [6:0] HEX0,
   output [6:0] HEX1,
   output [6:0] HEX2,
-  output [6:0] HEX3
+  output [6:0] HEX3,
+  output logic [7:0] VGA_R,VGA_G,VGA_B, 
+  output logic VGA_HS,VGA_VS, VGA_CLK, VGA_BLANK_N
+
 
 );
 
@@ -34,7 +37,13 @@ timeprecision 100ps;
   
   assign Buttons = ~KEY[1:0];
  
-  arm_soc soc_inst(.HCLK, .HRESETn, .DataOut(LEDR), .DataValid, .Switches, .Buttons, .LOCKUP);
+  arm_soc soc_inst(.HCLK, .HRESETn, .x1(x1), .x2(x2), .y1(y1), .y2(y2), .DataValid, .Switches, .Buttons, .LOCKUP);
+  razzle raz_inst  (.CLOCK_50(CLOCK_50), 
+		 .KEY(KEY),
+		.x1(x1), .x2(x2), .y1(y1), .y2(y2),
+        .VGA_R(VGA_R),.VGA_G(VGA_G),.VGA_B(VGA_B), 
+         .VGA_HS(VGA_HS),.VGA_VS(VGA_VS), .VGA_CLK(VGA_CLK), .VGA_BLANK_N(VGA_BLANK_N)); 
+
 
   // Drive HRESETn directly from active low CPU KEY[2] button
   assign HRESETn = KEY[2];
