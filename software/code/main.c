@@ -102,10 +102,10 @@ void wait_for_any_switch_data(void) {
 
 int main(void) {
 
-  write_out_0( 0x00000000 ); 
-  write_out_1( 0x00000000 );
-  write_out_2( 0x11110000 );
-  write_out_3( 0x11110000 );  
+  write_out_0( 0x000 ); 
+  write_out_1( 0x140 );
+  write_out_2( 0x000 );
+  write_out_3( 0x140 );  
 	
     
 
