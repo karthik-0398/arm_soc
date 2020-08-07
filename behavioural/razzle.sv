@@ -10,7 +10,7 @@ module razzle (
  
         input logic CLOCK_50, 
 		input logic [3:0] KEY,
-		input logic [8:0] x1, x2, y1, y2,
+		input logic [10:0] x1, x2, y1, y2,
         output logic [7:0] VGA_R,VGA_G,VGA_B, 
         output logic VGA_HS,VGA_VS, VGA_CLK, VGA_BLANK_N); 
        		 
