@@ -33,17 +33,17 @@ void write_out_0(uint32_t value_0) {
 }
 void write_out_1(uint32_t value_1) {
 
-  OUT_REGS[1] = value_1;
+  OUT_REGS[2] = value_1;
 
 }
 void write_out_2(uint32_t value_2) {
 
-  OUT_REGS[2] = value_2;
+  OUT_REGS[4] = value_2;
 
 }
 void write_out_3(uint32_t value_3) {
 
-  OUT_REGS[3] = value_3;
+  OUT_REGS[6] = value_3;
 
 }
 void set_out_invalid(void) {
