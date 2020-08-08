@@ -48,9 +48,9 @@ void write_out_3(uint32_t value_3) {
 }
 void set_out_invalid(void) {
 	
-  OUT_REGS[3] = 0;
+  OUT_REGS[6] = 0;
+  OUT_REGS[4] = 0;
   OUT_REGS[2] = 0;
-  OUT_REGS[1] = 0;
   OUT_REGS[0] = 0;
 
 }
@@ -58,9 +58,9 @@ void set_out_invalid(void) {
 uint32_t read_out(void) {
 
   return OUT_REGS[0];
-  return OUT_REGS[1];
   return OUT_REGS[2];
-  return OUT_REGS[3];  
+  return OUT_REGS[4];
+  return OUT_REGS[6];  
 }
 
 uint32_t read_switches(int addr) {
