@@ -109,12 +109,12 @@
   assign memory[ 107 ] = 32'h4770B002;
   assign memory[ 108 ] = 32'h00000284;
   assign memory[ 109 ] = 32'h681B4B0A;
-  assign memory[ 110 ] = 32'h2200330C;
+  assign memory[ 110 ] = 32'h22003318;
   assign memory[ 111 ] = 32'h4B08601A;
-  assign memory[ 112 ] = 32'h3308681B;
+  assign memory[ 112 ] = 32'h3310681B;
   assign memory[ 113 ] = 32'h601A2200;
   assign memory[ 114 ] = 32'h681B4B05;
-  assign memory[ 115 ] = 32'h22003304;
+  assign memory[ 115 ] = 32'h22003308;
   assign memory[ 116 ] = 32'h4B03601A;
   assign memory[ 117 ] = 32'h2200681B;
   assign memory[ 118 ] = 32'h46C0601A;
