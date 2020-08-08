@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccIccVhl.s 			page 1
+ARM GAS  /tmp/cci8IZ5Q.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
   55              		.type	SW_REGS, %object
   56              		.size	SW_REGS, 4
   57              	SW_REGS:
-ARM GAS  /tmp/ccIccVhl.s 			page 2
+ARM GAS  /tmp/cci8IZ5Q.s 			page 2
 
 
   58 0000 00000040 		.word	1073741824
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
   30:code/main.c   **** 
   31:code/main.c   ****   OUT_REGS[0] = value_0;
   83              		.loc 1 31 0
-ARM GAS  /tmp/ccIccVhl.s 			page 3
+ARM GAS  /tmp/cci8IZ5Q.s 			page 3
 
 
   84 0004 034B     		ldr	r3, .L2	@ tmp111,
@@ -157,11 +157,11 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  114              		.cfi_def_cfa_offset 8
  115 001a 0190     		str	r0, [sp, #4]	@ value_1, value_1
   35:code/main.c   **** 
-  36:code/main.c   ****   OUT_REGS[1] = value_1;
+  36:code/main.c   ****   OUT_REGS[2] = value_1;
  116              		.loc 1 36 0
  117 001c 034B     		ldr	r3, .L5	@ tmp112,
  118 001e 1B68     		ldr	r3, [r3]	@ D.4301, OUT_REGS
- 119 0020 0433     		adds	r3, r3, #4	@ D.4301,
+ 119 0020 0833     		adds	r3, r3, #8	@ D.4301,
  120 0022 019A     		ldr	r2, [sp, #4]	@ tmp113, value_1
  121 0024 1A60     		str	r2, [r3]	@ tmp113, *_3
   37:code/main.c   **** 
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  131              		.cfi_endproc
  132              	.LFE1:
  133              		.size	write_out_1, .-write_out_1
-ARM GAS  /tmp/ccIccVhl.s 			page 4
+ARM GAS  /tmp/cci8IZ5Q.s 			page 4
 
 
  134              		.align	2
@@ -199,11 +199,11 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  148              		.cfi_def_cfa_offset 8
  149 0032 0190     		str	r0, [sp, #4]	@ value_2, value_2
   40:code/main.c   **** 
-  41:code/main.c   ****   OUT_REGS[2] = value_2;
+  41:code/main.c   ****   OUT_REGS[4] = value_2;
  150              		.loc 1 41 0
  151 0034 034B     		ldr	r3, .L8	@ tmp112,
  152 0036 1B68     		ldr	r3, [r3]	@ D.4302, OUT_REGS
- 153 0038 0833     		adds	r3, r3, #8	@ D.4302,
+ 153 0038 1033     		adds	r3, r3, #16	@ D.4302,
  154 003a 019A     		ldr	r2, [sp, #4]	@ tmp113, value_2
  155 003c 1A60     		str	r2, [r3]	@ tmp113, *_3
   42:code/main.c   **** 
@@ -238,14 +238,14 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  182              		.cfi_def_cfa_offset 8
  183 004a 0190     		str	r0, [sp, #4]	@ value_3, value_3
   45:code/main.c   **** 
-ARM GAS  /tmp/ccIccVhl.s 			page 5
+ARM GAS  /tmp/cci8IZ5Q.s 			page 5
 
 
-  46:code/main.c   ****   OUT_REGS[3] = value_3;
+  46:code/main.c   ****   OUT_REGS[6] = value_3;
  184              		.loc 1 46 0
  185 004c 034B     		ldr	r3, .L11	@ tmp112,
  186 004e 1B68     		ldr	r3, [r3]	@ D.4303, OUT_REGS
- 187 0050 0C33     		adds	r3, r3, #12	@ D.4303,
+ 187 0050 1833     		adds	r3, r3, #24	@ D.4303,
  188 0052 019A     		ldr	r2, [sp, #4]	@ tmp113, value_3
  189 0054 1A60     		str	r2, [r3]	@ tmp113, *_3
   47:code/main.c   **** 
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  230 007a 0022     		movs	r2, #0	@ tmp122,
  231 007c 1A60     		str	r2, [r3]	@ tmp122, *_9
   54:code/main.c   ****   OUT_REGS[0] = 0;
-ARM GAS  /tmp/ccIccVhl.s 			page 6
+ARM GAS  /tmp/cci8IZ5Q.s 			page 6
 
 
  232              		.loc 1 54 0
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  276              		.global	read_switches
  277              		.code	16
  278              		.thumb_func
-ARM GAS  /tmp/ccIccVhl.s 			page 7
+ARM GAS  /tmp/cci8IZ5Q.s 			page 7
 
 
  279              		.type	read_switches, %function
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  325 00be 0190     		str	r0, [sp, #4]	@ addr, addr
   73:code/main.c   **** 
   74:code/main.c   ****   int status, switches_ready;
-ARM GAS  /tmp/ccIccVhl.s 			page 8
+ARM GAS  /tmp/cci8IZ5Q.s 			page 8
 
 
   75:code/main.c   ****   
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  369              		@ link register save eliminated.
   86:code/main.c   **** 
   87:code/main.c   ****   // this is a 'busy wait'
-ARM GAS  /tmp/ccIccVhl.s 			page 9
+ARM GAS  /tmp/cci8IZ5Q.s 			page 9
 
 
   88:code/main.c   **** 
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  104:code/main.c   **** 
  105:code/main.c   ****   write_out_0( 0x000 ); 
  408              		.loc 1 105 0
-ARM GAS  /tmp/ccIccVhl.s 			page 10
+ARM GAS  /tmp/cci8IZ5Q.s 			page 10
 
 
  409 0106 0020     		movs	r0, #0	@,
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  455 002e 08       		.byte	0x8
  456 002f 01010000 		.4byte	.LASF1
  457 0033 02       		.uleb128 0x2
-ARM GAS  /tmp/ccIccVhl.s 			page 11
+ARM GAS  /tmp/cci8IZ5Q.s 			page 11
 
 
  458 0034 02       		.byte	0x2
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  512 00a0 01       		.byte	0x1
  513 00a1 1D       		.byte	0x1d
  514 00a2 76000000 		.4byte	0x76
-ARM GAS  /tmp/ccIccVhl.s 			page 12
+ARM GAS  /tmp/cci8IZ5Q.s 			page 12
 
 
  515 00a6 02       		.byte	0x2
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  569 0112 25010000 		.4byte	0x125
  570 0116 06       		.uleb128 0x6
  571 0117 24020000 		.4byte	.LASF18
-ARM GAS  /tmp/ccIccVhl.s 			page 13
+ARM GAS  /tmp/cci8IZ5Q.s 			page 13
 
 
  572 011b 01       		.byte	0x1
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  626 0181 01       		.byte	0x1
  627 0182 5E010000 		.4byte	.LASF21
  628 0186 01       		.byte	0x1
-ARM GAS  /tmp/ccIccVhl.s 			page 14
+ARM GAS  /tmp/cci8IZ5Q.s 			page 14
 
 
  629 0187 48       		.byte	0x48
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  683 01ed 01       		.byte	0x1
  684 01ee 68000000 		.4byte	0x68
  685 01f2 04010000 		.4byte	.LFB9
-ARM GAS  /tmp/ccIccVhl.s 			page 15
+ARM GAS  /tmp/cci8IZ5Q.s 			page 15
 
 
  686 01f6 2C010000 		.4byte	.LFE9
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  740 0019 0B       		.uleb128 0xb
  741 001a 03       		.uleb128 0x3
  742 001b 0E       		.uleb128 0xe
-ARM GAS  /tmp/ccIccVhl.s 			page 16
+ARM GAS  /tmp/cci8IZ5Q.s 			page 16
 
 
  743 001c 00       		.byte	0
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  797 0053 03       		.uleb128 0x3
  798 0054 0E       		.uleb128 0xe
  799 0055 3A       		.uleb128 0x3a
-ARM GAS  /tmp/ccIccVhl.s 			page 17
+ARM GAS  /tmp/cci8IZ5Q.s 			page 17
 
 
  800 0056 0B       		.uleb128 0xb
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  854 008e 0C       		.uleb128 0xc
  855 008f 00       		.byte	0
  856 0090 00       		.byte	0
-ARM GAS  /tmp/ccIccVhl.s 			page 18
+ARM GAS  /tmp/cci8IZ5Q.s 			page 18
 
 
  857 0091 09       		.uleb128 0x9
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  911 00c8 0C       		.uleb128 0xc
  912 00c9 49       		.uleb128 0x49
  913 00ca 13       		.uleb128 0x13
-ARM GAS  /tmp/ccIccVhl.s 			page 19
+ARM GAS  /tmp/cci8IZ5Q.s 			page 19
 
 
  914 00cb 11       		.uleb128 0x11
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  968 0014 0200     		.2byte	0x2
  969 0016 7D       		.byte	0x7d
  970 0017 08       		.sleb128 8
-ARM GAS  /tmp/ccIccVhl.s 			page 20
+ARM GAS  /tmp/cci8IZ5Q.s 			page 20
 
 
  971 0018 00000000 		.4byte	0
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  1025              	.LLST5:
  1026 00a0 BC000000 		.4byte	.LFB7-.Ltext0
  1027 00a4 BE000000 		.4byte	.LCFI5-.Ltext0
-ARM GAS  /tmp/ccIccVhl.s 			page 21
+ARM GAS  /tmp/cci8IZ5Q.s 			page 21
 
 
  1028 00a8 0200     		.2byte	0x2
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  1071      745F3100 
  1072              	.LASF15:
  1073 0026 77726974 		.ascii	"write_out_2\000"
-ARM GAS  /tmp/ccIccVhl.s 			page 22
+ARM GAS  /tmp/cci8IZ5Q.s 			page 22
 
 
  1073      655F6F75 
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  1095      647900
  1096              	.LASF5:
  1097 011e 6C6F6E67 		.ascii	"long unsigned int\000"
-ARM GAS  /tmp/ccIccVhl.s 			page 23
+ARM GAS  /tmp/cci8IZ5Q.s 			page 23
 
 
  1097      20756E73 
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  1120              	.LASF10:
  1121 01c2 75696E74 		.ascii	"uint32_t\000"
  1121      33325F74 
-ARM GAS  /tmp/ccIccVhl.s 			page 24
+ARM GAS  /tmp/cci8IZ5Q.s 			page 24
 
 
  1121      00
@@ -1410,43 +1410,43 @@ ARM GAS  /tmp/ccIccVhl.s 			page 1
  1136 022c 5F426F6F 		.ascii	"_Bool\000"
  1136      6C00
  1137              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160919 (release) [ARM/embedded-5-bran
-ARM GAS  /tmp/ccIccVhl.s 			page 25
+ARM GAS  /tmp/cci8IZ5Q.s 			page 25
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-     /tmp/ccIccVhl.s:57     .data:00000000 SW_REGS
-     /tmp/ccIccVhl.s:54     .data:00000000 $d
-     /tmp/ccIccVhl.s:63     .data:00000004 OUT_REGS
-     /tmp/ccIccVhl.s:66     .text:00000000 $t
-     /tmp/ccIccVhl.s:71     .text:00000000 write_out_0
-     /tmp/ccIccVhl.s:96     .text:00000014 $d
-     /tmp/ccIccVhl.s:100    .text:00000018 $t
-     /tmp/ccIccVhl.s:105    .text:00000018 write_out_1
-     /tmp/ccIccVhl.s:130    .text:0000002c $d
-     /tmp/ccIccVhl.s:134    .text:00000030 $t
-     /tmp/ccIccVhl.s:139    .text:00000030 write_out_2
-     /tmp/ccIccVhl.s:164    .text:00000044 $d
-     /tmp/ccIccVhl.s:168    .text:00000048 $t
-     /tmp/ccIccVhl.s:173    .text:00000048 write_out_3
-     /tmp/ccIccVhl.s:198    .text:0000005c $d
-     /tmp/ccIccVhl.s:202    .text:00000060 $t
-     /tmp/ccIccVhl.s:207    .text:00000060 set_out_invalid
-     /tmp/ccIccVhl.s:244    .text:0000008c $d
-     /tmp/ccIccVhl.s:248    .text:00000090 $t
-     /tmp/ccIccVhl.s:253    .text:00000090 read_out
-     /tmp/ccIccVhl.s:271    .text:0000009c $d
-     /tmp/ccIccVhl.s:275    .text:000000a0 $t
-     /tmp/ccIccVhl.s:280    .text:000000a0 read_switches
-     /tmp/ccIccVhl.s:306    .text:000000b8 $d
-     /tmp/ccIccVhl.s:310    .text:000000bc $t
-     /tmp/ccIccVhl.s:315    .text:000000bc check_switches
-     /tmp/ccIccVhl.s:354    .text:000000e8 $d
-     /tmp/ccIccVhl.s:358    .text:000000ec $t
-     /tmp/ccIccVhl.s:363    .text:000000ec wait_for_any_switch_data
-     /tmp/ccIccVhl.s:388    .text:00000100 $d
-     /tmp/ccIccVhl.s:392    .text:00000104 $t
-     /tmp/ccIccVhl.s:397    .text:00000104 main
+     /tmp/cci8IZ5Q.s:57     .data:00000000 SW_REGS
+     /tmp/cci8IZ5Q.s:54     .data:00000000 $d
+     /tmp/cci8IZ5Q.s:63     .data:00000004 OUT_REGS
+     /tmp/cci8IZ5Q.s:66     .text:00000000 $t
+     /tmp/cci8IZ5Q.s:71     .text:00000000 write_out_0
+     /tmp/cci8IZ5Q.s:96     .text:00000014 $d
+     /tmp/cci8IZ5Q.s:100    .text:00000018 $t
+     /tmp/cci8IZ5Q.s:105    .text:00000018 write_out_1
+     /tmp/cci8IZ5Q.s:130    .text:0000002c $d
+     /tmp/cci8IZ5Q.s:134    .text:00000030 $t
+     /tmp/cci8IZ5Q.s:139    .text:00000030 write_out_2
+     /tmp/cci8IZ5Q.s:164    .text:00000044 $d
+     /tmp/cci8IZ5Q.s:168    .text:00000048 $t
+     /tmp/cci8IZ5Q.s:173    .text:00000048 write_out_3
+     /tmp/cci8IZ5Q.s:198    .text:0000005c $d
+     /tmp/cci8IZ5Q.s:202    .text:00000060 $t
+     /tmp/cci8IZ5Q.s:207    .text:00000060 set_out_invalid
+     /tmp/cci8IZ5Q.s:244    .text:0000008c $d
+     /tmp/cci8IZ5Q.s:248    .text:00000090 $t
+     /tmp/cci8IZ5Q.s:253    .text:00000090 read_out
+     /tmp/cci8IZ5Q.s:271    .text:0000009c $d
+     /tmp/cci8IZ5Q.s:275    .text:000000a0 $t
+     /tmp/cci8IZ5Q.s:280    .text:000000a0 read_switches
+     /tmp/cci8IZ5Q.s:306    .text:000000b8 $d
+     /tmp/cci8IZ5Q.s:310    .text:000000bc $t
+     /tmp/cci8IZ5Q.s:315    .text:000000bc check_switches
+     /tmp/cci8IZ5Q.s:354    .text:000000e8 $d
+     /tmp/cci8IZ5Q.s:358    .text:000000ec $t
+     /tmp/cci8IZ5Q.s:363    .text:000000ec wait_for_any_switch_data
+     /tmp/cci8IZ5Q.s:388    .text:00000100 $d
+     /tmp/cci8IZ5Q.s:392    .text:00000104 $t
+     /tmp/cci8IZ5Q.s:397    .text:00000104 main
                      .debug_frame:00000010 $d
 
 NO UNDEFINED SYMBOLS
