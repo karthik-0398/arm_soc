@@ -14,7 +14,7 @@ testbench/arm_soc.tcl
 +EMGRLOG
 ncverilog.log
 -XLSTIME
-1596680347
+1596918182
 -XLKEEP
 -XLMODE
 ./INCA_libs/irun.lnx8664.15.20.nc
@@ -28,4 +28,4 @@ ncverilog
 -XLVERSION
 "TOOL:	ncverilog	15.20-s058"
 -XLNAME
-./INCA_libs/irun.lnx8664.15.20.nc/srv02749_95064
+./INCA_libs/irun.lnx8664.15.20.nc/srv02749_35708

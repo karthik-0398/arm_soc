@@ -87,7 +87,3 @@ define VIEW_MAP ( $VIEW_MAP \
 , .sv.gz => sv \
 , .sv.Z => sv \
 )
-define ELAB_SNAPSHOT
-define SNAPSHOT worklib.arm_soc_stim:sv
-define ELAB_SNAPSHOT
-define SNAPSHOT worklib.arm_soc_stim:sv

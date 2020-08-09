@@ -15,7 +15,7 @@ LOAD /srv/gcc-arm-none-eabi-5_4-2016q3/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-
 LOAD /srv/gcc-arm-none-eabi-5_4-2016q3/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m/libc.a
 END GROUP
 
-.text           0x00000000      0x280
+.text           0x00000000      0x27c
                 0x00000000                _stext = .
  CREATE_OBJECT_SYMBOLS
  *(.vectors)
@@ -51,7 +51,7 @@ END GROUP
                 0x00000148                PIO_2_IRQHandler
                 0x0000014c                PIO_1_IRQHandler
                 0x00000150                PIO_0_IRQHandler
- .text          0x00000154      0x12c ./code/main.o
+ .text          0x00000154      0x128 ./code/main.o
                 0x00000154                write_out_0
                 0x0000016c                write_out_1
                 0x00000184                write_out_2
@@ -63,59 +63,59 @@ END GROUP
                 0x00000240                wait_for_any_switch_data
                 0x00000258                main
  *(.text.*)
-                0x00000280                . = ALIGN (0x4)
+                0x0000027c                . = ALIGN (0x4)
  *(.rodata)
  *(.rodata.*)
-                0x00000280                . = ALIGN (0x4)
-                0x00000280                _etext = .
+                0x0000027c                . = ALIGN (0x4)
+                0x0000027c                _etext = .
 
-.glue_7         0x00000280        0x0
- .glue_7        0x00000280        0x0 linker stubs
+.glue_7         0x0000027c        0x0
+ .glue_7        0x0000027c        0x0 linker stubs
 
-.glue_7t        0x00000280        0x0
- .glue_7t       0x00000280        0x0 linker stubs
+.glue_7t        0x0000027c        0x0
+ .glue_7t       0x0000027c        0x0 linker stubs
 
-.vfp11_veneer   0x00000280        0x0
- .vfp11_veneer  0x00000280        0x0 linker stubs
+.vfp11_veneer   0x0000027c        0x0
+ .vfp11_veneer  0x0000027c        0x0 linker stubs
 
-.v4_bx          0x00000280        0x0
- .v4_bx         0x00000280        0x0 linker stubs
+.v4_bx          0x0000027c        0x0
+ .v4_bx         0x0000027c        0x0 linker stubs
 
-.iplt           0x00000280        0x0
- .iplt          0x00000280        0x0 ./code/crt.o
+.iplt           0x0000027c        0x0
+ .iplt          0x0000027c        0x0 ./code/crt.o
 
-.rel.dyn        0x00000280        0x0
- .rel.iplt      0x00000280        0x0 ./code/crt.o
+.rel.dyn        0x0000027c        0x0
+ .rel.iplt      0x0000027c        0x0 ./code/crt.o
 
-.data           0x00000280        0x8
-                0x00000280                . = ALIGN (0x4)
-                0x00000280                _sdata = .
+.data           0x0000027c        0x8
+                0x0000027c                . = ALIGN (0x4)
+                0x0000027c                _sdata = .
  *(.data)
- .data          0x00000280        0x0 ./code/crt.o
- .data          0x00000280        0x0 ./code/vectors_designstart.o
- .data          0x00000280        0x8 ./code/main.o
-                0x00000280                SW_REGS
-                0x00000284                OUT_REGS
+ .data          0x0000027c        0x0 ./code/crt.o
+ .data          0x0000027c        0x0 ./code/vectors_designstart.o
+ .data          0x0000027c        0x8 ./code/main.o
+                0x0000027c                SW_REGS
+                0x00000280                OUT_REGS
  *(.data.*)
-                0x00000288                . = ALIGN (0x4)
+                0x00000284                . = ALIGN (0x4)
  *(.fastrun)
  *(.fastrun.*)
-                0x00000288                . = ALIGN (0x4)
-                0x00000288                _edata = .
+                0x00000284                . = ALIGN (0x4)
+                0x00000284                _edata = .
 
-.igot.plt       0x00000288        0x0
- .igot.plt      0x00000288        0x0 ./code/crt.o
+.igot.plt       0x00000284        0x0
+ .igot.plt      0x00000284        0x0 ./code/crt.o
 
-.bss            0x00000288        0x0
-                0x00000288                . = ALIGN (0x4)
-                0x00000288                _sbss = .
+.bss            0x00000284        0x0
+                0x00000284                . = ALIGN (0x4)
+                0x00000284                _sbss = .
  *(.bss)
- .bss           0x00000288        0x0 ./code/crt.o
- .bss           0x00000288        0x0 ./code/vectors_designstart.o
- .bss           0x00000288        0x0 ./code/main.o
+ .bss           0x00000284        0x0 ./code/crt.o
+ .bss           0x00000284        0x0 ./code/vectors_designstart.o
+ .bss           0x00000284        0x0 ./code/main.o
  *(.bss.*)
-                0x00000288                . = ALIGN (0x4)
-                0x00000288                _ebss = .
+                0x00000284                . = ALIGN (0x4)
+                0x00000284                _ebss = .
                 0x00004000                _estack = (ORIGIN (RAM) + LENGTH (RAM))
 
 /DISCARD/
@@ -144,10 +144,10 @@ OUTPUT(test_designstart.elf elf32-littlearm)
  .debug_aranges
                 0x00000040       0x20 ./code/main.o
 
-.debug_line     0x00000000      0x2cc
+.debug_line     0x00000000      0x2e0
  .debug_line    0x00000000       0xe1 ./code/crt.o
  .debug_line    0x000000e1       0xe6 ./code/vectors_designstart.o
- .debug_line    0x000001c7      0x105 ./code/main.o
+ .debug_line    0x000001c7      0x119 ./code/main.o
 
 .debug_str      0x00000000      0x3ff
  .debug_str     0x00000000      0x13d ./code/crt.o
