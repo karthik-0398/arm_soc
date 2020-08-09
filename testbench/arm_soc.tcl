@@ -13,7 +13,10 @@ simvision {
     waveform  add  -signals  arm_soc_stim.HRESETn
     waveform  add  -signals  arm_soc_stim.Switches
     waveform  add  -signals  arm_soc_stim.Buttons
-    waveform  add  -signals  arm_soc_stim.DataOut
+    waveform  add  -signals  arm_soc_stim.x1
+    waveform  add  -signals  arm_soc_stim.x2
+    waveform  add  -signals  arm_soc_stim.y1
+    waveform  add  -signals  arm_soc_stim.y2    
     waveform  add  -signals  arm_soc_stim.DataValid
     waveform  add  -signals  arm_soc_stim.LOCKUP
     waveform  add  -signals  arm_soc_stim.dut.HADDR
