@@ -59,10 +59,8 @@ timeprecision 100ps;
 
   //control signals are stored in registers
   logic write_enable, read_enable;
-  logic half_word_address_1;
-  logic half_word_address_2;
-  logic half_word_address_3;
-  logic half_word_address_4;
+  logic [1:0] word_address  ;
+
  
   logic NextDataValid;
   logic [15:0] Status;
@@ -73,28 +71,21 @@ timeprecision 100ps;
       begin
         write_enable <= '0;
         read_enable <= '0;
-        half_word_address_1 <= '0;
-	    	half_word_address_2 <= '0;
-	    	half_word_address_3 <= '0;
-    		half_word_address_4 <= '0;
+        word_address <= '0;
+
       end
     else if ( HREADY && HSEL && (HTRANS != No_Transfer) )
       begin
         write_enable <= HWRITE;
         read_enable <= ! HWRITE;
-        half_word_address_1 <= HADDR[1];
-	    	half_word_address_2 <= HADDR[2];
-    		half_word_address_3 <= HADDR[3];
-		    half_word_address_4 <= HADDR[4];
+        word_address <= HADDR[3:2];
+
      end
     else
       begin
         write_enable <= '0;
         read_enable <= '0;
-        half_word_address_1 <= '0;
-    		half_word_address_2 <= '0;
-    		half_word_address_3 <= '0;
-    		half_word_address_4 <= '0;
+        word_address <= '0;
      end
 
   //Act on control signals in the data phase
@@ -107,69 +98,24 @@ timeprecision 100ps;
     		x2 <= '0;
     		y1 <= '0;
     		y2 <= '0;
-        DataValid <= '0;
-        NextDataValid <= '0;
+
       end
- // x1 write     
-    else if ( write_enable && (half_word_address_1==0))
-      begin
-        x1 <= HWDATA[15:0];
-        DataValid <= NextDataValid;
+    // x1 write     
+    else if ( write_enable && (word_address==0))
+      x1 <= HWDATA[15:0];
 
-        // this is not synthesized but provides useful debugging information
-        if ( NextDataValid )
-          $display( "x1:      ", HWDATA[15:0], " @", $time );
-        else
-          $display( "x1:--Invalid-- @", $time );
+    // y1 write     
+    else if ( write_enable && (word_address==1))
+      y1 <= HWDATA[15:0];
 
-     end
- // x2 write    
-	else if ( write_enable && (half_word_address_2==0))
-      begin
-		x2 <= HWDATA[15:0];
-		DataValid <= NextDataValid;
-		
-	    // this is not synthesized but provides useful debugging information
-        if ( NextDataValid )
-          $display( "x2:      ", HWDATA[15:0], " @", $time );
-        else
-          $display( "x2:--Invalid-- @", $time );
+    // x2 write     
+    else if ( write_enable && (word_address==2))
+      x2 <= HWDATA[15:0];
 
-     end
-// y1 write
-	else if ( write_enable && (half_word_address_3==0))
-      begin
-		y1 <= HWDATA[15:0];
-		DataValid <= NextDataValid;
-		
-	    // this is not synthesized but provides useful debugging information
-        if ( NextDataValid )
-          $display( "y1:      ", HWDATA[15:0], " @", $time );
-        else
-          $display( "y1:--Invalid-- @", $time );
+    // y2 write     
+    else if ( write_enable && (word_address==3))
+      y2 <= HWDATA[15:0];
 
-     end
- //y2 write    
-	else if ( write_enable && (half_word_address_4==0))
-      begin
-		y2 <= HWDATA[15:0];
-		DataValid <= NextDataValid;
-		
-	    // this is not synthesized but provides useful debugging information
-        if ( NextDataValid )
-          $display( "y2:      ", HWDATA[15:0], " @", $time );
-        else
-          $display( "y2:--Invalid-- @", $time );
-
-     end	 
-     
-    else if ( write_enable && (half_word_address_1==1) && (half_word_address_2==1) && (half_word_address_3==1) && (half_word_address_4==1) )
-      begin
-        NextDataValid <= HWDATA[16];
-     end
-
-  // define the bits in the status register
-  assign Status = { 14'd0, NextDataValid, DataValid};
 
   //read
   always_comb
@@ -178,10 +124,12 @@ timeprecision 100ps;
       //  but may help with debugging)
       HRDATA = '0;
     else 
-      case (half_word_address_1)
+      case (word_address)
         // ensure that half-word data is correctly aligned
-        0 : HRDATA = { 16'd0, x1 };
-        1 : HRDATA = { Status, 16'd0 };
+        0 : HRDATA = { 23'd0, x1 };
+        1 : HRDATA = { 23'd0, y1 };
+        2 : HRDATA = { 23'd0, x2 };
+        3 : HRDATA = { 23'd0, y2 };                
         // unused address - returns zero
         default : HRDATA = '0;
       endcase
