@@ -7,10 +7,9 @@ timeprecision 100ps;
   logic [15:0] Switches;
   logic [1:0] Buttons;
   logic [8:0] x1,x2,y1,y2;
-  wire DataValid;
   wire LOCKUP;
 
-  arm_soc dut(.HCLK, .HRESETn, .x1, .y1, .x2, .y2, .DataValid, .Switches, .Buttons, .LOCKUP);
+  arm_soc dut(.HCLK, .HRESETn, .x1, .y1, .x2, .y2, .Switches, .Buttons, .LOCKUP);
 
   always
     begin

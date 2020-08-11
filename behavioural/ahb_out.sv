@@ -47,8 +47,6 @@ module ahb_out(
 
   //Non-AHB Signals
   output logic [8:0] x1, x2, y1, y2,
-  output logic DataValid
-
 );
 
 timeunit 1ns;

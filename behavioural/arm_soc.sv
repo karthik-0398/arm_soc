@@ -1,7 +1,6 @@
 // Example code for an M0 AHBLite System
 //  Iain McNally
 //  ECS, University of Soutampton
-
 module arm_soc(
 
   input HCLK, HRESETn,
@@ -9,7 +8,6 @@ module arm_soc(
   input [15:0] Switches, 
   input [1:0] Buttons, 
   output logic [8:0] x1, x2, y1, y2,	
-  output DataValid,
   output LOCKUP
 
 );
@@ -94,7 +92,7 @@ timeprecision 100ps;
     .HSEL(HSEL_DOUT),
     .HRDATA(HRDATA_DOUT), .HREADYOUT(HREADYOUT_DOUT),
 
-    .x1(x1), .x2(x2), .y1(y1), .y2(y2), .DataValid(DataValid)
+    .x1(x1), .x2(x2), .y1(y1), .y2(y2)
 
   );
   

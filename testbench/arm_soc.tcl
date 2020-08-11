@@ -17,7 +17,6 @@ simvision {
     waveform  add  -signals  arm_soc_stim.x2
     waveform  add  -signals  arm_soc_stim.y1
     waveform  add  -signals  arm_soc_stim.y2    
-    waveform  add  -signals  arm_soc_stim.DataValid
     waveform  add  -signals  arm_soc_stim.LOCKUP
     waveform  add  -signals  arm_soc_stim.dut.HADDR
     waveform  add  -signals  arm_soc_stim.dut.HWRITE
