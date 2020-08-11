@@ -25,22 +25,25 @@ volatile uint32_t* OUT_REGS = (volatile uint32_t*) AHB_OUT_BASE;
 //////////////////////////////////////////////////////////////////
 // Functions provided to access i/o devices
 //////////////////////////////////////////////////////////////////
-
+// x1
 void write_out_0(uint32_t value_0) {
 
   OUT_REGS[0] = value_0;
 
 }
+//y1
 void write_out_1(uint32_t value_1) {
 
   OUT_REGS[1] = value_1;
 
 }
+//x2
 void write_out_2(uint32_t value_2) {
 
   OUT_REGS[2] = value_2;
 
 }
+//y2
 void write_out_3(uint32_t value_3) {
 
   OUT_REGS[3] = value_3;
@@ -103,10 +106,10 @@ void wait_for_any_switch_data(void) {
 int main(void) {
 
 while(1) {
-  write_out_0( 0x078 ); 
-  write_out_1( 0x140 );
-  write_out_2( 0x078 );
-  write_out_3( 0x140 );  
+  write_out_0( 0x078 ); //x1
+  write_out_1( 0x140 );//y1
+  write_out_2( 0x078 );//x2
+  write_out_3( 0x140 );// y2  
 }
     
 
