@@ -46,7 +46,7 @@ module ahb_out(
   output HREADYOUT,
 
   //Non-AHB Signals
-  output logic [8:0] x1, x2, y1, y2,
+  output logic [8:0] x1, x2, y1, y2
 );
 
 timeunit 1ns;
