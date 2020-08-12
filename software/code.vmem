@@ -149,9 +149,9 @@
   assign memory[ 147 ] = 32'h46C0D0F9;
   assign memory[ 148 ] = 32'h46C04770;
   assign memory[ 149 ] = 32'h0000027C;
-  assign memory[ 150 ] = 32'h2078B510;
+  assign memory[ 150 ] = 32'h2000B510;
   assign memory[ 151 ] = 32'hFF7AF7FF;
-  assign memory[ 152 ] = 32'hF7FF2078;
+  assign memory[ 152 ] = 32'hF7FF2000;
   assign memory[ 153 ] = 32'h23A0FF83;
   assign memory[ 154 ] = 32'h0018005B;
   assign memory[ 155 ] = 32'hFF8AF7FF;

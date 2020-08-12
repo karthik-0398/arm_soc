@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cctrEP4k.s 			page 1
+ARM GAS  /tmp/ccph1tRf.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
   55              		.type	SW_REGS, %object
   56              		.size	SW_REGS, 4
   57              	SW_REGS:
-ARM GAS  /tmp/cctrEP4k.s 			page 2
+ARM GAS  /tmp/ccph1tRf.s 			page 2
 
 
   58 0000 00000040 		.word	1073741824
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
   30:code/main.c   **** 
   31:code/main.c   ****   OUT_REGS[0] = value_0;
   83              		.loc 1 31 0
-ARM GAS  /tmp/cctrEP4k.s 			page 3
+ARM GAS  /tmp/ccph1tRf.s 			page 3
 
 
   84 0004 034B     		ldr	r3, .L2	@ tmp111,
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  130 002c 00000000 		.word	OUT_REGS
  131              		.cfi_endproc
  132              	.LFE1:
-ARM GAS  /tmp/cctrEP4k.s 			page 4
+ARM GAS  /tmp/ccph1tRf.s 			page 4
 
 
  133              		.size	write_out_1, .-write_out_1
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  179              		@ link register save eliminated.
  180 0048 82B0     		sub	sp, sp, #8	@,,
  181              	.LCFI3:
-ARM GAS  /tmp/cctrEP4k.s 			page 5
+ARM GAS  /tmp/ccph1tRf.s 			page 5
 
 
  182              		.cfi_def_cfa_offset 8
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  227 0074 054B     		ldr	r3, .L14	@ tmp121,
  228 0076 1B68     		ldr	r3, [r3]	@ D.4305, OUT_REGS
  229 0078 0433     		adds	r3, r3, #4	@ D.4305,
-ARM GAS  /tmp/cctrEP4k.s 			page 6
+ARM GAS  /tmp/ccph1tRf.s 			page 6
 
 
  230 007a 0022     		movs	r2, #0	@ tmp122,
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  273              	.LFE5:
  274              		.size	read_out, .-read_out
  275              		.align	2
-ARM GAS  /tmp/cctrEP4k.s 			page 7
+ARM GAS  /tmp/ccph1tRf.s 			page 7
 
 
  276              		.global	read_switches
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  322 00bc 84B0     		sub	sp, sp, #16	@,,
  323              	.LCFI5:
  324              		.cfi_def_cfa_offset 16
-ARM GAS  /tmp/cctrEP4k.s 			page 8
+ARM GAS  /tmp/ccph1tRf.s 			page 8
 
 
  325 00be 0190     		str	r0, [sp, #4]	@ addr, addr
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  366              		.cfi_startproc
  367              		@ args = 0, pretend = 0, frame = 0
  368              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/cctrEP4k.s 			page 9
+ARM GAS  /tmp/ccph1tRf.s 			page 9
 
 
  369              		@ link register save eliminated.
@@ -538,19 +538,19 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  405              		.cfi_def_cfa_offset 8
  406              		.cfi_offset 4, -8
  407              		.cfi_offset 14, -4
-ARM GAS  /tmp/cctrEP4k.s 			page 10
+ARM GAS  /tmp/ccph1tRf.s 			page 10
 
 
  408              	.L34:
  107:code/main.c   **** 
  108:code/main.c   **** while(1) {
- 109:code/main.c   ****   write_out_0( 0x078 ); //x1
+ 109:code/main.c   ****   write_out_0( 0x000 ); //x1
  409              		.loc 1 109 0 discriminator 1
- 410 0106 7820     		movs	r0, #120	@,
+ 410 0106 0020     		movs	r0, #0	@,
  411 0108 FFF7FEFF 		bl	write_out_0	@
- 110:code/main.c   ****   write_out_1( 0x078 );//y1
+ 110:code/main.c   ****   write_out_1( 0x000 );//y1
  412              		.loc 1 110 0 discriminator 1
- 413 010c 7820     		movs	r0, #120	@,
+ 413 010c 0020     		movs	r0, #0	@,
  414 010e FFF7FEFF 		bl	write_out_1	@
  111:code/main.c   ****   write_out_2( 0x140 );//x2
  415              		.loc 1 111 0 discriminator 1
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  455 0033 02       		.uleb128 0x2
  456 0034 02       		.byte	0x2
  457 0035 05       		.byte	0x5
-ARM GAS  /tmp/cctrEP4k.s 			page 11
+ARM GAS  /tmp/ccph1tRf.s 			page 11
 
 
  458 0036 B8010000 		.4byte	.LASF2
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  512 00a2 76000000 		.4byte	0x76
  513 00a6 02       		.byte	0x2
  514 00a7 91       		.byte	0x91
-ARM GAS  /tmp/cctrEP4k.s 			page 12
+ARM GAS  /tmp/ccph1tRf.s 			page 12
 
 
  515 00a8 7C       		.sleb128 -4
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  569 0117 24020000 		.4byte	.LASF18
  570 011b 01       		.byte	0x1
  571 011c 2F       		.byte	0x2f
-ARM GAS  /tmp/cctrEP4k.s 			page 13
+ARM GAS  /tmp/ccph1tRf.s 			page 13
 
 
  572 011d 76000000 		.4byte	0x76
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  626 0186 01       		.byte	0x1
  627 0187 4B       		.byte	0x4b
  628 0188 01       		.byte	0x1
-ARM GAS  /tmp/cctrEP4k.s 			page 14
+ARM GAS  /tmp/ccph1tRf.s 			page 14
 
 
  629 0189 C9010000 		.4byte	0x1c9
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  683 01f2 04010000 		.4byte	.LFB9
  684 01f6 28010000 		.4byte	.LFE9
  685 01fa C0000000 		.4byte	.LLST6
-ARM GAS  /tmp/cctrEP4k.s 			page 15
+ARM GAS  /tmp/ccph1tRf.s 			page 15
 
 
  686 01fe 01       		.byte	0x1
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  740 001b 0E       		.uleb128 0xe
  741 001c 00       		.byte	0
  742 001d 00       		.byte	0
-ARM GAS  /tmp/cctrEP4k.s 			page 16
+ARM GAS  /tmp/ccph1tRf.s 			page 16
 
 
  743 001e 03       		.uleb128 0x3
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  797 0055 3A       		.uleb128 0x3a
  798 0056 0B       		.uleb128 0xb
  799 0057 3B       		.uleb128 0x3b
-ARM GAS  /tmp/cctrEP4k.s 			page 17
+ARM GAS  /tmp/ccph1tRf.s 			page 17
 
 
  800 0058 0B       		.uleb128 0xb
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  854 0090 00       		.byte	0
  855 0091 09       		.uleb128 0x9
  856 0092 2E       		.uleb128 0x2e
-ARM GAS  /tmp/cctrEP4k.s 			page 18
+ARM GAS  /tmp/ccph1tRf.s 			page 18
 
 
  857 0093 01       		.byte	0x1
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  911 00ca 13       		.uleb128 0x13
  912 00cb 11       		.uleb128 0x11
  913 00cc 01       		.uleb128 0x1
-ARM GAS  /tmp/cctrEP4k.s 			page 19
+ARM GAS  /tmp/ccph1tRf.s 			page 19
 
 
  914 00cd 12       		.uleb128 0x12
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  968 0017 08       		.sleb128 8
  969 0018 00000000 		.4byte	0
  970 001c 00000000 		.4byte	0
-ARM GAS  /tmp/cctrEP4k.s 			page 20
+ARM GAS  /tmp/ccph1tRf.s 			page 20
 
 
  971              	.LLST1:
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  1025 00a4 BE000000 		.4byte	.LCFI5-.Ltext0
  1026 00a8 0200     		.2byte	0x2
  1027 00aa 7D       		.byte	0x7d
-ARM GAS  /tmp/cctrEP4k.s 			page 21
+ARM GAS  /tmp/ccph1tRf.s 			page 21
 
 
  1028 00ab 00       		.sleb128 0
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  1071 0026 77726974 		.ascii	"write_out_2\000"
  1071      655F6F75 
  1071      745F3200 
-ARM GAS  /tmp/cctrEP4k.s 			page 22
+ARM GAS  /tmp/ccph1tRf.s 			page 22
 
 
  1072              	.LASF17:
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  1095 011e 6C6F6E67 		.ascii	"long unsigned int\000"
  1095      20756E73 
  1095      69676E65 
-ARM GAS  /tmp/cctrEP4k.s 			page 23
+ARM GAS  /tmp/ccph1tRf.s 			page 23
 
 
  1095      6420696E 
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  1119      33325F74 
  1119      00
  1120              	.LASF4:
-ARM GAS  /tmp/cctrEP4k.s 			page 24
+ARM GAS  /tmp/ccph1tRf.s 			page 24
 
 
  1121 01cb 6C6F6E67 		.ascii	"long int\000"
@@ -1408,43 +1408,43 @@ ARM GAS  /tmp/cctrEP4k.s 			page 1
  1134 022c 5F426F6F 		.ascii	"_Bool\000"
  1134      6C00
  1135              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160919 (release) [ARM/embedded-5-bran
-ARM GAS  /tmp/cctrEP4k.s 			page 25
+ARM GAS  /tmp/ccph1tRf.s 			page 25
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-     /tmp/cctrEP4k.s:57     .data:00000000 SW_REGS
-     /tmp/cctrEP4k.s:54     .data:00000000 $d
-     /tmp/cctrEP4k.s:63     .data:00000004 OUT_REGS
-     /tmp/cctrEP4k.s:66     .text:00000000 $t
-     /tmp/cctrEP4k.s:71     .text:00000000 write_out_0
-     /tmp/cctrEP4k.s:96     .text:00000014 $d
-     /tmp/cctrEP4k.s:100    .text:00000018 $t
-     /tmp/cctrEP4k.s:105    .text:00000018 write_out_1
-     /tmp/cctrEP4k.s:130    .text:0000002c $d
-     /tmp/cctrEP4k.s:134    .text:00000030 $t
-     /tmp/cctrEP4k.s:139    .text:00000030 write_out_2
-     /tmp/cctrEP4k.s:164    .text:00000044 $d
-     /tmp/cctrEP4k.s:168    .text:00000048 $t
-     /tmp/cctrEP4k.s:173    .text:00000048 write_out_3
-     /tmp/cctrEP4k.s:198    .text:0000005c $d
-     /tmp/cctrEP4k.s:202    .text:00000060 $t
-     /tmp/cctrEP4k.s:207    .text:00000060 set_out_invalid
-     /tmp/cctrEP4k.s:244    .text:0000008c $d
-     /tmp/cctrEP4k.s:248    .text:00000090 $t
-     /tmp/cctrEP4k.s:253    .text:00000090 read_out
-     /tmp/cctrEP4k.s:271    .text:0000009c $d
-     /tmp/cctrEP4k.s:275    .text:000000a0 $t
-     /tmp/cctrEP4k.s:280    .text:000000a0 read_switches
-     /tmp/cctrEP4k.s:306    .text:000000b8 $d
-     /tmp/cctrEP4k.s:310    .text:000000bc $t
-     /tmp/cctrEP4k.s:315    .text:000000bc check_switches
-     /tmp/cctrEP4k.s:354    .text:000000e8 $d
-     /tmp/cctrEP4k.s:358    .text:000000ec $t
-     /tmp/cctrEP4k.s:363    .text:000000ec wait_for_any_switch_data
-     /tmp/cctrEP4k.s:388    .text:00000100 $d
-     /tmp/cctrEP4k.s:392    .text:00000104 $t
-     /tmp/cctrEP4k.s:397    .text:00000104 main
+     /tmp/ccph1tRf.s:57     .data:00000000 SW_REGS
+     /tmp/ccph1tRf.s:54     .data:00000000 $d
+     /tmp/ccph1tRf.s:63     .data:00000004 OUT_REGS
+     /tmp/ccph1tRf.s:66     .text:00000000 $t
+     /tmp/ccph1tRf.s:71     .text:00000000 write_out_0
+     /tmp/ccph1tRf.s:96     .text:00000014 $d
+     /tmp/ccph1tRf.s:100    .text:00000018 $t
+     /tmp/ccph1tRf.s:105    .text:00000018 write_out_1
+     /tmp/ccph1tRf.s:130    .text:0000002c $d
+     /tmp/ccph1tRf.s:134    .text:00000030 $t
+     /tmp/ccph1tRf.s:139    .text:00000030 write_out_2
+     /tmp/ccph1tRf.s:164    .text:00000044 $d
+     /tmp/ccph1tRf.s:168    .text:00000048 $t
+     /tmp/ccph1tRf.s:173    .text:00000048 write_out_3
+     /tmp/ccph1tRf.s:198    .text:0000005c $d
+     /tmp/ccph1tRf.s:202    .text:00000060 $t
+     /tmp/ccph1tRf.s:207    .text:00000060 set_out_invalid
+     /tmp/ccph1tRf.s:244    .text:0000008c $d
+     /tmp/ccph1tRf.s:248    .text:00000090 $t
+     /tmp/ccph1tRf.s:253    .text:00000090 read_out
+     /tmp/ccph1tRf.s:271    .text:0000009c $d
+     /tmp/ccph1tRf.s:275    .text:000000a0 $t
+     /tmp/ccph1tRf.s:280    .text:000000a0 read_switches
+     /tmp/ccph1tRf.s:306    .text:000000b8 $d
+     /tmp/ccph1tRf.s:310    .text:000000bc $t
+     /tmp/ccph1tRf.s:315    .text:000000bc check_switches
+     /tmp/ccph1tRf.s:354    .text:000000e8 $d
+     /tmp/ccph1tRf.s:358    .text:000000ec $t
+     /tmp/ccph1tRf.s:363    .text:000000ec wait_for_any_switch_data
+     /tmp/ccph1tRf.s:388    .text:00000100 $d
+     /tmp/ccph1tRf.s:392    .text:00000104 $t
+     /tmp/ccph1tRf.s:397    .text:00000104 main
                      .debug_frame:00000010 $d
 
 NO UNDEFINED SYMBOLS
