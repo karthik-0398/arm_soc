@@ -107,8 +107,8 @@ int main(void) {
 
 while(1) {
   write_out_0( 0x078 ); //x1
-  write_out_1( 0x140 );//y1
-  write_out_2( 0x078 );//x2
+  write_out_1( 0x078 );//y1
+  write_out_2( 0x140 );//x2
   write_out_3( 0x140 );// y2  
 }
     
