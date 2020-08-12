@@ -1,5 +1,5 @@
 ncverilog(64): 15.20-s058: (c) Copyright 1995-2018 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s058: Started on Aug 08, 2020 at 21:23:02 BST
+TOOL:	ncverilog	15.20-s058: Started on Aug 11, 2020 at 16:05:04 BST
 ncverilog
 	-sv
 	testbench/arm_soc_stim.sv
@@ -31,8 +31,10 @@ ncsim> simvision {
 >     waveform  add  -signals  arm_soc_stim.HRESETn
 >     waveform  add  -signals  arm_soc_stim.Switches
 >     waveform  add  -signals  arm_soc_stim.Buttons
->     waveform  add  -signals  arm_soc_stim.DataOut
->     waveform  add  -signals  arm_soc_stim.DataValid
+>     waveform  add  -signals  arm_soc_stim.x1
+>     waveform  add  -signals  arm_soc_stim.x2
+>     waveform  add  -signals  arm_soc_stim.y1
+>     waveform  add  -signals  arm_soc_stim.y2    
 >     waveform  add  -signals  arm_soc_stim.LOCKUP
 >     waveform  add  -signals  arm_soc_stim.dut.HADDR
 >     waveform  add  -signals  arm_soc_stim.dut.HWRITE
@@ -44,12 +46,10 @@ ncsim> simvision {
 ncsim> 
 ncsim> database -open waves -into waves.shm -default
 Created default SHM database waves
-ncsim> probe -create -shm arm_soc_stim.HCLK arm_soc_stim.HRESETn arm_soc_stim.Switches arm_soc_stim.Buttons arm_soc_stim.DataValid arm_soc_stim.LOCKUP arm_soc_stim.dut.HADDR arm_soc_stim.dut.HWRITE arm_soc_stim.dut.HSEL_RAM arm_soc_stim.dut.HSEL_SW arm_soc_stim.dut.HSEL_DOUT
+ncsim> probe -create -shm arm_soc_stim.HCLK arm_soc_stim.HRESETn arm_soc_stim.Switches arm_soc_stim.Buttons arm_soc_stim.x1 arm_soc_stim.x2 arm_soc_stim.y1 arm_soc_stim.y2 arm_soc_stim.LOCKUP arm_soc_stim.dut.HADDR arm_soc_stim.dut.HWRITE arm_soc_stim.dut.HSEL_RAM arm_soc_stim.dut.HSEL_SW arm_soc_stim.dut.HSEL_DOUT
 Created probe 1
 ncsim> run
-x1:--Invalid-- @                1045
-x1:--Invalid-- @                1545
-x1:--Invalid-- @                2005
-x1:--Invalid-- @                2505
 Simulation stopped via $stop(1) at time 404010 NS + 0
-ncsim> TOOL:	ncverilog	15.20-s058: Exiting on Aug 08, 2020 at 21:29:10 BST  (total: 00:06:08)
+ncsim> ^C
+ncsim> exit
+TOOL:	ncverilog	15.20-s058: Exiting on Aug 11, 2020 at 16:08:45 BST  (total: 00:03:41)

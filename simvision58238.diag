@@ -1,0 +1,88 @@
+*** Message Type: info ***
+When: Mon Aug 10 00:04:59 BST 2020
+SimVision started.
+Version: TOOL:  simvision(64)   15.20-s058
+User: ks6n19
+Host: srv02749.soton.ac.uk
+Platform: Linux/x86_64/3.10.0-1127.13.1.el7.x86_64
+Started: Mon Aug 10 00:04:59 BST 2020
+Command: /eda/cadence/incisiv/tools.lnx86/simvision/bin/64bit/simvision.exe -connect dc:srv02749.soton.ac.uk:45889 -64BIT -nocopyright
+Work Directory: /home/ks6n19/design/system_on_chip/example
+ 
+*** Message Type: info ***
+When: Mon Aug 10 00:05:00 BST 2020
+Create browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Mon Aug 10 00:05:02 BST 2020
+Create console window: "Console"
+ 
+*** Message Type: info ***
+When: Mon Aug 10 00:05:05 BST 2020
+Connect to Simulator
+      Design: worklib.arm_soc_stim:sv
+   Languages: verilog
+   Simulator: NC-Sim
+     Version: TOOL:    ncsim(64)       15.20-s058
+        User: ks6n19
+        Host: srv02749.soton.ac.uk
+Time Started: Mon Aug 10 00:04:58 BST 2020
+  Process ID: 58232
+   Directory: /home/ks6n19/design/system_on_chip/example
+     Command: ncverilog -sv testbench/arm_soc_stim.sv -y behavioural +libext+.sv +gui +ncaccess+r +tcl+testbench/arm_soc.tcl +define+prog_file=software/code.hex
+
+ 
+*** Message Type: info ***
+When: Mon Aug 10 00:05:06 BST 2020
+Create utility window: "Properties"
+ 
+*** Message Type: info ***
+When: Mon Aug 10 00:05:07 BST 2020
+Create waveform window: "Waves for ARM SoC Example"
+ 
+*** Message Type: info ***
+When: Mon Aug 10 00:09:51 BST 2020
+Exit NC-Sim: user
+      Design: worklib.arm_soc_stim:sv
+   Languages: verilog
+   Simulator: NC-Sim
+     Version: TOOL:    ncsim(64)       15.20-s058
+        User: ks6n19
+        Host: srv02749.soton.ac.uk
+Time Started: Mon Aug 10 00:04:58 BST 2020
+  Process ID: 58232
+   Directory: /home/ks6n19/design/system_on_chip/example
+     Command: ncverilog -sv testbench/arm_soc_stim.sv -y behavioural +libext+.sv +gui +ncaccess+r +tcl+testbench/arm_soc.tcl +define+prog_file=software/code.hex
+
+ 
+*** Message Type: error ***
+When: Mon Aug 10 00:09:51 BST 2020
+NC-Sim Crashed:
+      Design: worklib.arm_soc_stim:sv
+   Languages: verilog
+   Simulator: NC-Sim
+     Version: TOOL:    ncsim(64)       15.20-s058
+        User: ks6n19
+        Host: srv02749.soton.ac.uk
+Time Started: Mon Aug 10 00:04:58 BST 2020
+  Process ID: 58232
+   Directory: /home/ks6n19/design/system_on_chip/example
+     Command: ncverilog -sv testbench/arm_soc_stim.sv -y behavioural +libext+.sv +gui +ncaccess+r +tcl+testbench/arm_soc.tcl +define+prog_file=software/code.hex
+      Design: worklib.arm_soc_stim:sv
+   Languages: verilog
+   Simulator: NC-Sim
+     Version: TOOL:        ncsim(64)       15.20-s058
+        User: ks6n19
+        Host: srv02749.soton.ac.uk
+Time Started: Mon Aug 10 00:04:58 BST 2020
+  Process ID: 58232
+   Directory: /home/ks6n19/design/system_on_chip/example
+     Command: ncverilog -sv testbench/arm_soc_stim.sv -y behavioural +libext+.sv +gui +ncaccess+r +tcl+testbench/arm_soc.tcl +define+prog_file=software/code.hex
+
+Outstanding STRAP Requests:
+        strap::report enable out
+ 
+*** Message Type: info ***
+When: Mon Aug 10 00:09:56 BST 2020
+SimVision Exit.
+ 
