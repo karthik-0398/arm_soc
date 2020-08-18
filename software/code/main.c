@@ -25,11 +25,6 @@ volatile uint32_t* OUT_REGS = (volatile uint32_t*) AHB_OUT_BASE;
 //////////////////////////////////////////////////////////////////
 // Functions provided to access i/o devices
 //////////////////////////////////////////////////////////////////
-uint32_t read_switches(int addr) {
-
-  return SW_REGS[addr];
-
-}
 // x1
 void write_out_0(uint32_t value_0) {
 
@@ -109,31 +104,14 @@ void wait_for_any_switch_data(void) {
 //////////////////////////////////////////////////////////////////
 
 int main(void) {
-  int switch_temp ;
 
-while(1) {  
-    if ( check_switches(0) ) {
-      write_out( read_switches(0) );
-    }
-   if ( check_switches(1) ) {
-      switch_temp = read_switches(1);
-      if (switch_temp = 1) {
-  write_out_0( 0x000 ); //x1
-  write_out_1( 0x000 );//y1
-  write_out_2( 0x140 );//x2
-  write_out_3( 0x140 );// y2  
-      }
- if (switch_temp = 0) {
-  write_out_0( 0x000 ); //x1
-  write_out_1( 0x000 );//y1
-  write_out_2( 0x200 );//x2
-  write_out_3( 0x240 );// y2  
-      }
-   }
-   }
+while(1) {
+  write_out_0( 0xA ); //x1
+  write_out_1( 0x64 );//y1
+  write_out_2( 0xA );//x2
+  write_out_3( 0x64 );// y2  
 }
-
     
 
 
-
+}
