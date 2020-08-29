@@ -32,12 +32,12 @@ timeprecision 100ps;
   wire HCLK, HRESETn, LOCKUP, DataValid;
   wire [1:0] Buttons;
   wire [15:0] Switches;
-
+  logic[8:0] x1,x2,y1,y2 ;
   assign Switches = { 6'd0, SW }; // DE1-SoC has just 10 switches
   
   assign Buttons = ~KEY[1:0];
  
-  arm_soc soc_inst(.HCLK, .HRESETn, .x1(x1), .x2(x2), .y1(y1), .y2(y2), .DataValid, .Switches, .Buttons, .LOCKUP);
+  arm_soc soc_inst(.HCLK, .HRESETn, .x1(x1), .x2(x2), .y1(y1), .y2(y2), .Switches, .Buttons, .LOCKUP);
   razzle raz_inst  (.CLOCK_50(CLOCK_50), 
 		 .KEY(KEY),
 		.x1(x1), .x2(x2), .y1(y1), .y2(y2),

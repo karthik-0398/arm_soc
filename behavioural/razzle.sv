@@ -65,12 +65,15 @@ always @(posedge CLOCK_50, negedge nReset)
     begin : FRACTAL_COMPUTE 
       if ( video_on )
 	begin
-	  if ( y1 < V_count < y2 )
-			if (  x2 < H_count < x1 )
-				red_square = 0 ; 
+	
+	  if (( y1 < V_count) && ( V_count < y2 ))
+			if ((  x1 < H_count) && ( H_count  < x2 ))
+				red_square = 1 ; 
+			else 
+				red_square = 0 ; 	
 	  else 
-	    red_square = 1 ; 	
-		
+		 red_square = 0 ;
+
 
 
 	end
