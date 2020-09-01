@@ -106,10 +106,10 @@ void wait_for_any_switch_data(void) {
 int main(void) {
 
 while(1) {
-  write_out_0( 0x000 ); //x1
-  write_out_1( 0x000 );//y1
-  write_out_2( 0x140 );//x2
-  write_out_3( 0x140 );// y2  
+  write_out_0( 0xA ); //x1
+  write_out_1( 0x64 );//y1
+  write_out_2( 0xA );//x2
+  write_out_3( 0x64 );// y2  
 }
     
 
