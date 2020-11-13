@@ -46,7 +46,7 @@ module ahb_out(
   output HREADYOUT,
 
   //Non-AHB Signals
-  output logic [8:0] x1, x2, y1, y2
+  output logic [8:0] x1, x2, y1, y2, x3, y3
 );
 
 timeunit 1ns;
@@ -57,7 +57,7 @@ timeprecision 100ps;
 
   //control signals are stored in registers
   logic write_enable, read_enable;
-  logic [1:0] word_address  ;
+  logic [2:0] word_address  ;
 
  
   logic NextDataValid;
@@ -76,7 +76,7 @@ timeprecision 100ps;
       begin
         write_enable <= HWRITE;
         read_enable <= ! HWRITE;
-        word_address <= HADDR[3:2];
+        word_address <= HADDR[4:2];
 
      end
     else
@@ -94,8 +94,10 @@ timeprecision 100ps;
       begin
         x1 <= '0;
     		x2 <= '0;
+        x3 <= '0;
     		y1 <= '0;
     		y2 <= '0;
+        y3 <= '0;
 
       end
     // x1 write     
@@ -114,6 +116,16 @@ timeprecision 100ps;
     else if ( write_enable && (word_address==3))
       y2 <= HWDATA[15:0];
 
+    // x3 write     
+    else if ( write_enable && (word_address==4))
+      x3 <= HWDATA[15:0];
+
+    // y3 write     
+    else if ( write_enable && (word_address==5))
+      y3 <= HWDATA[15:0];
+
+      
+
 
   //read
   always_comb
@@ -127,7 +139,9 @@ timeprecision 100ps;
         0 : HRDATA = { 23'd0, x1 };
         1 : HRDATA = { 23'd0, y1 };
         2 : HRDATA = { 23'd0, x2 };
-        3 : HRDATA = { 23'd0, y2 };                
+        3 : HRDATA = { 23'd0, y2 };   
+        4 : HRDATA = { 23'd0, x3 };
+        5 : HRDATA = { 23'd0, y3 };                        
         // unused address - returns zero
         default : HRDATA = '0;
       endcase
