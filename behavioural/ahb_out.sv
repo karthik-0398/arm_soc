@@ -40,12 +40,16 @@ module ahb_out(
   input HWRITE,
   input HREADY,
   input HSEL,
+  //Non-AHB signals 
+  input logic [9:0] pixel_x ,
+  input logic [8:0] pixel_y ,
 
   // AHB Signals from Slave to Master
   output logic [31:0] HRDATA,
   output HREADYOUT,
 
   //Non-AHB Signals
+  output logic pixel, 
   output logic [8:0] x1, x2, y1, y2, x3, y3
 );
 
@@ -58,7 +62,11 @@ timeprecision 100ps;
   //control signals are stored in registers
   logic write_enable, read_enable;
   logic [2:0] word_address  ;
+  logic [18:0] word_address_memory;
+  logic [18:0] pixel_address ;
 
+  //memory
+  logic [0:0] memory [0:307199] ;
  
   logic NextDataValid;
   logic [15:0] Status;
@@ -70,6 +78,7 @@ timeprecision 100ps;
         write_enable <= '0;
         read_enable <= '0;
         word_address <= '0;
+        word_address_memory <= '0;
 
       end
     else if ( HREADY && HSEL && (HTRANS != No_Transfer) )
@@ -77,6 +86,7 @@ timeprecision 100ps;
         write_enable <= HWRITE;
         read_enable <= ! HWRITE;
         word_address <= HADDR[4:2];
+        word_address_memory <= HADDR[23:5] ;
 
      end
     else
@@ -84,6 +94,7 @@ timeprecision 100ps;
         write_enable <= '0;
         read_enable <= '0;
         word_address <= '0;
+        word_address_memory <= '0;
      end
 
   //Act on control signals in the data phase
@@ -124,7 +135,26 @@ timeprecision 100ps;
     else if ( write_enable && (word_address==5))
       y3 <= HWDATA[15:0];
 
-      
+ initial 
+
+memory = '{307200{0}};
+
+  //memory 
+  always_ff @(posedge HCLK)
+    begin 
+      if( write_enable )
+        memory[word_address_memory] <= HWDATA ; 
+    end 
+  
+  always_comb 
+    pixel_address = (pixel_y * 640) + pixel_x  ;
+    
+   
+   always_ff @(posedge HCLK)  
+     begin
+      pixel <= memory[pixel_address] ;
+     end
+          
 
 
   //read
@@ -135,7 +165,6 @@ timeprecision 100ps;
       HRDATA = '0;
     else 
       case (word_address)
-        // ensure that half-word data is correctly aligned
         0 : HRDATA = { 23'd0, x1 };
         1 : HRDATA = { 23'd0, y1 };
         2 : HRDATA = { 23'd0, x2 };
