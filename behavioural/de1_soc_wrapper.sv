@@ -29,20 +29,24 @@ timeprecision 100ps;
   localparam heartbeat_count_msb = 25; 
   
   
-  wire HCLK, HRESETn, LOCKUP, DataValid;
+  wire HCLK, HRESETn, LOCKUP;
   wire [1:0] Buttons;
   wire [15:0] Switches;
-  logic[8:0] x1,x2,y1,y2 ;
+  logic pixel ;
+  logic [9:0] pixel_x ;
+  logic [8:0] pixel_y ; 
   assign Switches = { 6'd0, SW }; // DE1-SoC has just 10 switches
   
   assign Buttons = ~KEY[1:0];
  
-  arm_soc soc_inst(.HCLK, .HRESETn, .x1(x1), .x2(x2), .y1(y1), .y2(y2), .Switches, .Buttons, .LOCKUP);
-  razzle raz_inst  (.CLOCK_50(CLOCK_50), 
-		 .KEY(KEY),
-		.x1(x1), .x2(x2), .y1(y1), .y2(y2),
+  arm_soc soc_inst(.HCLK, .HRESETn, .Switches, .pixel(pixel), .pixel_x(pixel_x), .pixel_y(pixel_y), .Buttons, .LOCKUP);
+  
+  razzle raz_inst  (
+        .CLOCK_50(CLOCK_50), .KEY(KEY), .pixel_x(pixel_x), .pixel_y(pixel_y), .pixel(pixel), 
         .VGA_R(VGA_R),.VGA_G(VGA_G),.VGA_B(VGA_B), 
-         .VGA_HS(VGA_HS),.VGA_VS(VGA_VS), .VGA_CLK(VGA_CLK), .VGA_BLANK_N(VGA_BLANK_N)); 
+        .VGA_HS(VGA_HS),.VGA_VS(VGA_VS), .VGA_CLK(VGA_CLK), 
+	.VGA_BLANK_N(VGA_BLANK_N)
+	); 
 
 
   // Drive HRESETn directly from active low CPU KEY[2] button
@@ -77,12 +81,7 @@ timeprecision 100ps;
   assign HEX0 = (heartbeat) ? 7'b0100011 : '1;
 
   // HEX1 is DataValid
-  assign HEX1 = ~{!DataValid&&!LOCKUP,
-                  !DataValid&&!LOCKUP,
-                  !DataValid&&!LOCKUP,
-                   !LOCKUP,
-                   !LOCKUP,
-                  !DataValid&&!LOCKUP };
+  assign HEX1 = ~{!LOCKUP};
 
   // running shows as r on HEX2
   assign HEX2 = ~{1'b0,running,1'b0,running, 4'b000 };

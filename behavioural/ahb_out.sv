@@ -43,14 +43,14 @@ module ahb_out(
   //Non-AHB signals 
   input logic [9:0] pixel_x ,
   input logic [8:0] pixel_y ,
-
+  input logic [10:0] x1, x2, y1, y2, x3, y3,
   // AHB Signals from Slave to Master
   output logic [31:0] HRDATA,
   output HREADYOUT,
 
   //Non-AHB Signals
-  output logic pixel, 
-  output logic [8:0] x1, x2, y1, y2, x3, y3
+  output logic pixel
+
 );
 
 timeunit 1ns;
@@ -155,27 +155,14 @@ memory = '{307200{0}};
       pixel <= memory[pixel_address] ;
      end
           
+// Read not allowed
 
-
-  //read
-  always_comb
-    if ( ! read_enable )
-      // (output of zero when not enabled for read is not necessary
-      //  but may help with debugging)
-      HRDATA = '0;
-    else 
-      case (word_address)
-        0 : HRDATA = { 23'd0, x1 };
-        1 : HRDATA = { 23'd0, y1 };
-        2 : HRDATA = { 23'd0, x2 };
-        3 : HRDATA = { 23'd0, y2 };   
-        4 : HRDATA = { 23'd0, x3 };
-        5 : HRDATA = { 23'd0, y3 };                        
-        // unused address - returns zero
-        default : HRDATA = '0;
-      endcase
-  //Transfer Response
-  assign HREADYOUT = '1; //Single cycle Write & Read. Zero Wait state operations
+assign HRDATA = '0; // read is not permitted mode
+   
+    
+ 
+//Transfer Response
+  assign HREADYOUT = '1; //Single Cycle Wait State for Write
 
 
 endmodule
