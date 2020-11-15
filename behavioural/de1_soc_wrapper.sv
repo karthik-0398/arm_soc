@@ -35,11 +35,12 @@ timeprecision 100ps;
   logic pixel ;
   logic [9:0] pixel_x ;
   logic [8:0] pixel_y ; 
+  logic [10:0] x1,y1,x2,y2,x3,y3 ;
   assign Switches = { 6'd0, SW }; // DE1-SoC has just 10 switches
   
   assign Buttons = ~KEY[1:0];
  
-  arm_soc soc_inst(.HCLK, .HRESETn, .Switches, .pixel(pixel), .pixel_x(pixel_x), .pixel_y(pixel_y), .Buttons, .LOCKUP);
+  arm_soc soc_inst(.HCLK, .HRESETn, .Switches, .pixel(pixel), .pixel_x(pixel_x), .pixel_y(pixel_y), .x1(x1), .y1(y1), .x2(x2), .y2(y2), .x3(x3), .y3(y3), .Buttons, .LOCKUP);
   
   razzle raz_inst  (
         .CLOCK_50(CLOCK_50), .KEY(KEY), .pixel_x(pixel_x), .pixel_y(pixel_y), .pixel(pixel), 

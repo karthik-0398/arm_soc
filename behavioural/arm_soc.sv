@@ -6,10 +6,10 @@ module arm_soc(
   input HCLK, HRESETn,
   input logic [9:0] pixel_x ,
   input logic [8:0] pixel_y,
-  input logic [10:0] x1, x2, y1, y2, x3, y3, 	
   input [15:0] Switches, 
   input [1:0] Buttons, 
   output logic pixel,
+  output logic [10:0] x1, x2, y1, y2, x3, y3, 	
   output LOCKUP
 
 );
@@ -94,7 +94,7 @@ timeprecision 100ps;
     .HSEL(HSEL_DOUT),
     .HRDATA(HRDATA_DOUT), .HREADYOUT(HREADYOUT_DOUT),
 
-    .x1(x1), .x2(x2), .y1(y1), .y2(y2), .x3(x3), .y3(y3) .pixel_x(pixel_x), .pixel_y(pixel_y) , .pixel(pixel)
+    .x1(x1), .x2(x2), .y1(y1), .y2(y2), .x3(x3), .y3(y3), .pixel_x(pixel_x), .pixel_y(pixel_y) , .pixel(pixel)
 
   );
   
